@@ -1,0 +1,100 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    background-image: url('../images/tile.jpg');
+    background-repeat: repeat;
+}
+
+#container {
+    display: grid;
+    grid-template-rows: 1fr 2fr 3fr;
+    height: 100%;
+}
+
+header {
+    font-family: rackCute;
+    grid-row: 1 / span 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main {
+    grid-row: 2 / span 1;
+}
+
+#formContainer {
+    background-image: url('../images/formbg.jpg');
+    background-repeat: repeat-y;
+    margin: 1% 28%;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#tasks {
+    grid-row: 3 / span 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+
+.task {
+    background-image: url('../images/notebg.png');
+    background-repeat: no-repeat;
+    padding: 1.5rem 0.4rem;
+    width: 200px;
+    /* when having multiple task rows, this stops the notes from jumping and interrupting the other rows */
+    max-height: 250px;
+}
+
+.task>div:nth-child(1) {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 1rem;
+}
+
+.task>div:nth-child(2) {
+    padding-right: 1rem;
+    overflow-y: auto;
+    height: 160px;
+}
+
+.task>div>span {
+    height: 16px;
+    display: none;
+    cursor: pointer;
+}
+
+.task:hover>div>span {
+    display: block;
+}
+
+.fadeIn {
+    animation: fadeInOpacity 1s ease-out;
+    animation-iteration-count: 1;
+}
+
+@font-face {
+    font-family: rackCute;
+    src: url('../fonts/RackCuteDEMO.otf');
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
